@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MPTWD Login | Madhya Pradesh Tribal Welfare Department</title>
+
+  <!-- Google Font & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="asset/all.min.css">
+  <script src="asset/all.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #2e7d32 40%, #a0522d 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      width: 400px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 35px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .header img {
+      width: 80px;
+    }
+
+    .header h1 {
+      font-size: 20px;
+      color: #2e7d32;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .header p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Input Fields */
+    .input-group {
+      position: relative;
+      margin-bottom: 18px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 42px 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #2e7d32;
+      box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+    }
+
+    .input-group i {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #777;
+      font-size: 16px;
+    }
+
+    /* Captcha Row */
+    .captcha-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .captcha-display {
+      background: #f8f8f8;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px 15px;
+      width: 90px;
+      text-align: center;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: #2e7d32;
+      user-select: none;
+    }
+
+    .refresh-btn {
+      background: #2e7d32;
+      border: none;
+      color: white;
+      padding: 9px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .refresh-btn:hover { background: #256528; }
+
+    .captcha-row input {
+      flex-grow: 1;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .captcha-row input:focus {
+      border-color: #2e7d32;
+      box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+    }
+
+    /* Options */
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+      font-size: 13px;
+    }
+
+    .form-options label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .form-options a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+
+    .form-options a:hover { text-decoration: underline; }
+
+    /* Button */
+    button[type="submit"] {
+      width: 100%;
+      background: #2e7d32;
+      color: white;
+      padding: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background: #256528;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 480px) {
+      .login-box { width: 90%; padding: 30px 25px; }
+      .captcha-row { flex-wrap: wrap; gap: 8px; }
+      .captcha-display { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-box">
+    <div class="header">
+      <img src="asset/SED.png" alt="MP Government Emblem">
+      <h1>Tribal Welfare Department Madhya Pradesh</h1>
+      <p>Official Login Portal</p>
+    </div>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <input type="text" id="username" placeholder="Username" required>
+        <i class="fas fa-user"></i>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Password" required>
+        <i class="fas fa-lock"></i>
+      </div>
+
+      <!-- Captcha Section -->
+      <div class="captcha-row">
+        <div class="captcha-display" id="captchaCode"></div>
+        <button type="button" class="refresh-btn" onclick="generateCaptcha()">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+        <input type="text" id="captchaInput" placeholder="Enter Captcha" required>
+      </div>
+
+      <div class="form-options">
+        <label><input type="checkbox" id="remember"> Remember me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="submit" id="loginBtn">Login</button>
+    </form>
+
+    <footer>© 2025 Madhya Pradesh Tribal Welfare Department | support@mptwd.gov.in</footer>
+  </div>
+
+  <script>
+    // === CAPTCHA GENERATOR ===
+    function generateCaptcha() {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let captcha = "";
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("captchaCode").innerText = captcha;
+    }
+    generateCaptcha();
+
+    // === FORM VALIDATION ===
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const enteredCaptcha = document.getElementById("captchaInput").value.trim().toUpperCase();
+      const actualCaptcha = document.getElementById("captchaCode").innerText.trim().toUpperCase();
+
+      if (enteredCaptcha !== actualCaptcha) {
+        alert("❌ Incorrect Captcha. Please try again.");
+        generateCaptcha();
+        document.getElementById("captchaInput").value = "";
+        return;
+      }
+
+      alert("✅ Login Successful (Demo Mode)");
+    });
+  </script>
+</body>
+</html>

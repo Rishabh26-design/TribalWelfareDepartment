@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Madhya Pradesh Tribal Welfare Department - Login</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        referrerpolicy="no-referrer"/>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+    :root{
+      --primary-blue:#1e3c72; --secondary-blue:#2a5298;
+      --light-bg:#f5f7fa; --dark-text:#333; --light-text:#fff;
+      --border:#e5e7eb;
+    }
+
+    body{
+      background:linear-gradient(135deg,var(--light-bg) 0%, #e4edf5 100%);
+      min-height:100vh; display:flex; justify-content:center; align-items:center; padding:16px;
+    }
+
+    .container{
+      display:flex; max-width:900px; width:100%; margin:0 auto; background:#fff;
+      border-radius:14px; overflow:hidden; box-shadow:0 12px 28px rgba(0,0,0,.09); border:1px solid var(--border);
+    }
+
+    .left-panel{
+      flex:1.02; color:var(--light-text); position:relative; overflow:hidden;
+      background:linear-gradient(135deg,var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      padding:20px 18px; display:flex; flex-direction:column;
+    }
+    .left-panel::before{
+      content:""; position:absolute; inset:0;
+      background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>') center/cover no-repeat;
+    }
+
+    .logo-container{
+      display:flex; align-items:center; gap:12px; margin-bottom:12px; position:relative; z-index:1;
+      background:rgba(255,255,255,0.1); padding:12px; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,.08);
+    }
+    .logo{ width:60px; height:60px; border-radius:50%; overflow:hidden; display:grid; place-items:center; background:rgba(255,255,255,0.15) }
+    .logo img{ width:60px; height:60px; object-fit:cover }
+
+    .department-name{ font-size:20px; font-weight:700; line-height:1.25; color:#fff }
+    .department-name-hindi{ font-size:16px; margin-top:4px; font-weight:500; color:rgba(255,255,255,.92) }
+
+    .modules-container{ position:relative; z-index:1; margin-top:8px }
+    .modules-title{
+      display:flex; align-items:center; gap:8px; color:#FFD700;
+      font-size:18px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Grid */
+    .modules-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px }
+
+    /* Base chip */
+    .module-item{
+      display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px;
+      transition:.2s ease; cursor:pointer; border-left:4px solid transparent;
+      border:1px solid rgba(0,0,0,0.06);
+    }
+    .module-item:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,0,0,.08) }
+    .module-item i{ font-size:16px; width:20px; text-align:center }
+    .module-text{ font-size:14px; font-weight:600 }
+
+    /* 17 unique, contrast-safe chip backgrounds (container + on-container) */
+    .chip-1  { background:#E7F4EA; border-color:#B7E0C2; color:#215732; border-left-color:#38A169 } /* green */
+    .chip-2  { background:#FFEDE5; border-color:#FFD0BF; color:#7B341E; border-left-color:#ED8936 } /* orange */
+    .chip-3  { background:#EFE7FF; border-color:#DAC9FF; color:#3E1C96; border-left-color:#805AD5 } /* purple */
+    .chip-4  { background:#E6F7F6; border-color:#C7ECEA; color:#0F4B46; border-left-color:#14B8A6 } /* teal */
+    .chip-5  { background:#FFF7D9; border-color:#FFE9A6; color:#6B4E00; border-left-color:#D69E2E } /* gold */
+    .chip-6  { background:#FFE7EC; border-color:#FFC9D3; color:#7A1022; border-left-color:#E53E3E } /* crimson */
+    .chip-7  { background:#EAF3FF; border-color:#CFE2FF; color:#103C7A; border-left-color:#3182CE } /* blue */
+    .chip-8  { background:#F0F5FF; border-color:#D9E3FF; color:#1F2A5C; border-left-color:#6366F1 } /* indigo */
+    .chip-9  { background:#F3F0FF; border-color:#E0D8FF; color:#33215E; border-left-color:#7C3AED } /* violet */
+    .chip-10 { background:#EFFFF3; border-color:#CFF5DA; color:#1C4B27; border-left-color:#22C55E } /* emerald */
+    .chip-11 { background:#FFF1ED; border-color:#FFD9CF; color:#5E2A17; border-left-color:#FB923C } /* warm orange */
+    .chip-12 { background:#FFF0F5; border-color:#FFD6E3; color:#6B1F33; border-left-color:#F472B6 } /* pink */
+    .chip-13 { background:#E8FFF8; border-color:#C9F6E9; color:#0C3F2F; border-left-color:#10B981 } /* jade */
+    .chip-14 { background:#FFF4E8; border-color:#FFE2C7; color:#5C3514; border-left-color:#F59E0B } /* amber */
+    .chip-15 { background:#EDF7FF; border-color:#CEE9FF; color:#103A5C; border-left-color:#06B6D4 } /* cyan */
+    .chip-16 { background:#EEF6FF; border-color:#D5E7FF; color:#17365C; border-left-color:#0EA5E9 } /* sky */
+    .chip-17 { background:#F2F2F2; border-color:#E0E0E0; color:#2B2B2B; border-left-color:#6B7280 } /* neutral */
+
+    .chip-1 i{color:#2F855A} .chip-2 i{color:#D15626} .chip-3 i{color:#6B46C1}
+    .chip-4 i{color:#0D9488} .chip-5 i{color:#B7791F} .chip-6 i{color:#C53030}
+    .chip-7 i{color:#2B6CB0} .chip-8 i{color:#4F46E5} .chip-9 i{color:#7C3AED}
+    .chip-10 i{color:#16A34A} .chip-11 i{color:#EA580C} .chip-12 i{color:#DB2777}
+    .chip-13 i{color:#0FA97A} .chip-14 i{color:#D97706} .chip-15 i{color:#0891B2}
+    .chip-16 i{color:#0284C7} .chip-17 i{color:#374151}
+
+    .footer{ margin-top:12px; text-align:center; font-size:12px; color:rgba(255,255,255,0.75); position:relative; z-index:1 }
+
+    /* Right panel + form */
+    .right-panel{ flex:0.98; padding:24px 20px; display:flex; flex-direction:column; justify-content:center }
+    .login-header{ text-align:center; margin-bottom:16px }
+    .login-header h2{ color:var(--primary-blue); font-size:22px; margin-bottom:4px }
+
+    .login-form{ width:100% }
+    .form-group{ margin-bottom:12px; position:relative }
+    .form-group label{ display:block; margin-bottom:6px; color:var(--dark-text); font-weight:600; font-size:13px }
+
+    .input-with-icon{ position:relative }
+    .input-with-icon i{ position:absolute; left:10px; top:50%; transform:translateY(-50%); color:#777; font-size:14px }
+    .input-with-icon input{
+      width:100%; padding:10px 36px 10px 36px; border:1px solid #ddd; border-radius:8px; font-size:14px; line-height:24px;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .input-with-icon input:focus{ border-color:var(--secondary-blue); box-shadow:0 0 0 2px rgba(42,82,152,0.2); outline:none }
+
+    .password-toggle{
+      position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; color:#777; cursor:pointer;
+      padding:6px; border-radius:6px; min-width:36px; min-height:36px;
+    }
+
+    /* CAPTCHA */
+    .captcha{ display:flex; align-items:center; gap:10px; margin:12px 0 }
+    .captcha-box{
+      user-select:none; letter-spacing:2px; font-weight:800; font-size:18px;
+      background:#f0f3fa; border:1px dashed #b8c2d8; border-radius:8px; padding:8px 12px; color:#1e3c72; text-shadow:0 1px 0 #fff;
+      transform:skewX(-4deg);
+    }
+    .captcha-refresh{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:40px; height:40px; border-radius:8px; border:1px solid #d7deef; background:#fff; cursor:pointer; color:#2a5298;
+    }
+    .captcha-refresh:hover{ background:#f5f7ff }
+    .captcha-input{ flex:1; min-width:0 }
+    .captcha-input input{ width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:8px; font-size:14px }
+
+    .options{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; gap:8px }
+    .remember-me{ display:flex; align-items:center; font-size:13px }
+    .remember-me input{ margin-right:8px }
+    .forgot-password{ color:#2a5298; text-decoration:none; font-weight:500; font-size:13px }
+    .forgot-password:hover{ text-decoration:underline }
+
+    .login-button{
+      width:100%; padding:10px 12px; border:none; border-radius:8px; cursor:pointer;
+      background:linear-gradient(135deg,var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      color:#fff; font-size:14px; font-weight:700; transition:.2s; min-height:44px;
+    }
+    .login-button:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(42,82,152,.25) }
+
+    @media (max-width:1100px){ .modules-grid{ grid-template-columns:1fr } }
+    @media (max-width:900px){
+      .container{ flex-direction:column }
+      .left-panel{ padding:18px }
+      .right-panel{ padding:20px 18px }
+    }
+    @media (max-width:500px){
+      .logo-container{ flex-direction:column; text-align:center }
+      .logo{ margin-bottom:8px }
+    }
+    @media (min-width:1280px){ .container{ max-width:880px } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left -->
+    <div class="left-panel">
+      <div class="modules-container">
+        <div class="modules-title"><i class="fas fa-th-large"></i>Department Modules</div>
+        <div class="modules-grid">
+          <div class="module-item chip-1"><i class="fas fa-users-cog"></i><div class="module-text">User Management</div></div>
+          <div class="module-item chip-2"><i class="fas fa-school"></i><div class="module-text">School Directory</div></div>
+          <div class="module-item chip-3"><i class="fas fa-user-graduate"></i><div class="module-text">Student Directory</div></div>
+          <div class="module-item chip-4"><i class="fas fa-id-badge"></i><div class="module-text">Employee Directory</div></div>
+          <div class="module-item chip-5"><i class="fas fa-user-friends"></i><div class="module-text">Parent Management</div></div>
+          <div class="module-item chip-6"><i class="fas fa-bus"></i><div class="module-text">Transport Management</div></div>
+          <div class="module-item chip-7"><i class="fas fa-users"></i><div class="module-text">Human Resource Management</div></div>
+          <div class="module-item chip-8"><i class="fas fa-university"></i><div class="module-text">School Management</div></div>
+          <div class="module-item chip-9"><i class="fas fa-book-open"></i><div class="module-text">Academic Management</div></div>
+          <div class="module-item chip-10"><i class="fas fa-hand-holding-heart"></i><div class="module-text">Scheme Management</div></div>
+          <div class="module-item chip-11"><i class="fas fa-chart-line"></i><div class="module-text">Budget Monitoring</div></div>
+          <div class="module-item chip-12"><i class="fas fa-chalkboard-teacher"></i><div class="module-text">Guest Faculty Management</div></div>
+          <div class="module-item chip-13"><i class="fas fa-award"></i><div class="module-text">Promotion And TC Management</div></div>
+          <div class="module-item chip-14"><i class="fas fa-bed"></i><div class="module-text">Hostel Management</div></div>
+          <div class="module-item chip-15"><i class="fas fa-hard-hat"></i><div class="module-text">Construction Management</div></div>
+          <div class="module-item chip-16"><i class="fas fa-chart-bar"></i><div class="module-text">Dashboard & Reports</div></div>
+          <div class="module-item chip-17"><i class="fas fa-hands-helping"></i><div class="module-text">Community Support</div></div>
+        </div>
+      </div>
+      <div class="footer">© 2025 Madhya Pradesh Tribal Welfare Department. All rights reserved.</div>
+    </div>
+
+    <!-- Right -->
+    <div class="right-panel">
+      <div class="logo-container">
+        <div class="logo"><img src="asset/SED.png" alt="Logo"/></div>
+        <div>
+          <div class="department-name">Madhya Pradesh Tribal Welfare Department</div>
+          <div class="department-name-hindi">मध्य प्रदेश जनजातीय कल्याण विभाग</div>
+        </div>
+      </div>
+
+      <div class="login-header"><h2>User Login</h2></div>
+
+      <form class="login-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="username">Username / Employee ID</label>
+          <div class="input-with-icon">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            <input type="text" id="username" placeholder="Enter your username or employee ID" autocomplete="username" required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" required/>
+            <button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CAPTCHA -->
+        <div class="captcha" aria-live="polite">
+          <div class="captcha-box" id="captchaBox">AB12C</div>
+          <button type="button" class="captcha-refresh" id="refreshCaptcha" title="Refresh captcha" aria-label="Refresh captcha">
+            <i class="fas fa-rotate-right"></i>
+          </button>
+          <div class="captcha-input">
+            <input type="text" id="captchaInput" placeholder="Enter captcha" inputmode="text" autocomplete="off" required/>
+          </div>
+        </div>
+
+        <div class="options">
+          <div class="remember-me">
+            <input type="checkbox" id="remember"/>
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-button">LOGIN</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Simple alphanumeric CAPTCHA
+    const captchaBox = document.getElementById('captchaBox');
+    const captchaInput = document.getElementById('captchaInput');
+    const refreshCaptcha = document.getElementById('refreshCaptcha');
+
+    function generateCaptcha(len = 5){
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
+      let out = '';
+      for(let i=0;i<len;i++){ out += chars.charAt(Math.floor(Math.random()*chars.length)); }
+      captchaBox.textContent = out;
+      captchaInput.value = '';
+    }
+    refreshCaptcha.addEventListener('click', generateCaptcha);
+    generateCaptcha();
+
+    // Password toggle
+    const toggle = document.getElementById('togglePassword');
+    const pwd = document.getElementById('password');
+    toggle.addEventListener('click', () => {
+      const hidden = pwd.type === 'password';
+      pwd.type = hidden ? 'text' : 'password';
+      toggle.setAttribute('aria-label', hidden ? 'Hide password' : 'Show password');
+      const icon = toggle.querySelector('i');
+      icon.classList.toggle('fa-eye');
+      icon.classList.toggle('fa-eye-slash');
+    });
+
+    // Basic form + CAPTCHA validation
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const code = captchaInput.value.trim();
+
+      if(!username || !password){ alert('Please enter both username and password.'); return; }
+      if(!code){ alert('Please enter the captcha.'); return; }
+      if(code !== captchaBox.textContent){ alert('Captcha did not match. Please try again.'); generateCaptcha(); return; }
+
+      alert('Login successful! Redirecting to dashboard...');
+      // window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>
