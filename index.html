@@ -39,17 +39,18 @@
       background-position: center;
     }
 
- .tribal-wrapper {
-  padding: 20px;
-  background:
-    linear-gradient(rgba(139, 69, 19, 0.6), rgba(160, 82, 45, 0.6)),
-    url('asset/art.jpeg'); /* <-- yahan apni image ka URL daalein */
-  background-size: cover;
-  background-position: center;
-  border-radius: 25px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  color: #fff;
-}
+    .tribal-wrapper {
+      padding: 20px;
+      background:
+        linear-gradient(rgba(139, 69, 19, 0.6), rgba(160, 82, 45, 0.6)),
+        url('asset/art.jpeg');
+      /* <-- yahan apni image ka URL daalein */
+      background-size: cover;
+      background-position: center;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      color: #fff;
+    }
 
 
 
@@ -242,13 +243,13 @@
     }
 
     .module-item:nth-child(9) {
-     
-       background: linear-gradient(135deg, #673AB7, #9575CD);
+
+      background: linear-gradient(135deg, #673AB7, #9575CD);
       border-color: #4527A0;
     }
 
     .module-item:nth-child(10) {
-       background: linear-gradient(135deg, #e6ad02, #f8ca33);
+      background: linear-gradient(135deg, #e6ad02, #f8ca33);
       border-color: #d88901;
     }
 
@@ -258,7 +259,7 @@
     }
 
     .module-item:nth-child(12) {
-      
+
       background: linear-gradient(135deg, #2196F3, #64B5F6);
       border-color: #1565C0;
     }
@@ -384,10 +385,10 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 10px 15px;
-      font-family:  monospace,'Poppins';
-      font-size: 18px;
+      font-family: monospace, 'Poppins';
+      font-size: 20px;
       font-weight: bold;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       text-align: center;
       user-select: none;
       color: #333;
@@ -423,7 +424,7 @@
     .captcha-refresh:hover {
       /* background: var(--primary-blue); */
       /* color: #fff; */
-       transform: rotate(180deg);
+      transform: rotate(180deg);
     }
 
     /* For mobile responsiveness */
@@ -456,7 +457,7 @@
     .remember-me {
       display: flex;
       align-items: center;
-      color:black;
+      color: black;
     }
 
     .remember-me input {
@@ -616,171 +617,295 @@
         display: flex;
       }
     }
+
+    /* Additional Links Section */
+    .additional-links {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .links-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 2px solid transparent;
+    }
+
+    .link-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .link-item i {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+
+    .portal-link,
+    .app-link,
+    .faq-link {
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 12px;
+      background: #ffffffe1;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Individual colors */
+    .portal-link {
+      color: #2a5298;
+      /* border: 2px solid #1e3c72; */
+    }
+
+    .app-link {
+      color: #2a5298;
+      /* border: 2px solid #4CAF50; */
+    }
+
+    .faq-link {
+      color: #2a5298;
+      /* border: 2px solid #FF9800; */
+    }
+
+    /* Hover effect */
+    /* .portal-link:hover {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .app-link:hover {
+      background: linear-gradient(135deg, #4CAF50, #81C784);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .faq-link:hover {
+      background: linear-gradient(135deg, #FF9800, #FFB74D);
+      color: #fff;
+      transform: translateY(-2px);
+    } */
+
+
+    @media (max-width: 768px) {
+      .links-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .link-item {
+        width: 200px;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="tribal-wrapper">
     <div class="container">
-    <div class="left-panel">
-      <div class="modules-container">
-        <div class="modules-title">
-          <i class="fas fa-th-large"></i>
-          Department Modules
-        </div>
-        <div class="modules-grid">
-          <div class="module-item">
-            <i class="fas fa-users-cog"></i>
-            <div class="module-text">User Management</div>
+      <div class="left-panel">
+        <div class="modules-container">
+          <div class="modules-title">
+            <i class="fas fa-th-large"></i>
+            Department Modules
           </div>
-          <div class="module-item">
-            <i class="fas fa-school"></i>
-            <div class="module-text">School Directory</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-user-graduate"></i>
-            <div class="module-text">Student Directory</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-id-badge"></i>
-            <div class="module-text">Employee Directory</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-user-friends"></i>
-            <div class="module-text">Parent Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-bus"></i>
-            <div class="module-text">Transport Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-users"></i>
-            <div class="module-text">Human Resource Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-university"></i>
-            <div class="module-text">School Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-book-open"></i>
-            <div class="module-text">Academic Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-hand-holding-heart"></i>
-            <div class="module-text">Scheme Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-chart-line"></i>
-            <div class="module-text">Budget Monitoring</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <div class="module-text">Guest Faculty Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-award"></i>
-            <div class="module-text">Promotion and TC Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-bed"></i>
-            <div class="module-text">Hostel Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-hard-hat"></i>
-            <div class="module-text">Construction Management</div>
-          </div>
-          <div class="module-item">
-            <i class="fas fa-chart-bar"></i>
-            <div class="module-text">Dashboard & Reports</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer">
-        © 2025 Madhya Pradesh Tribal Welfare Department. All rights reserved.
-      </div>
-
-      <div class="tribal-pattern"></div>
-    </div>
-
-    <div class="right-panel">
-      <div class="logo-container">
-        <div class="logo">
-          <img src="asset/SED.png" alt="Logo" style="width:70px; height:70px;">
-        </div>
-        <div>
-          <div class="department-name">Tribal Welfare Department<br>Madhya Pradesh</div>
-          <div class="department-name-hindi"> जनजातीय कल्याण विभाग, मध्य प्रदेश</div>
-        </div>
-      </div>
-      <div class="login-header">
-        <h2>User Login</h2>
-        <!-- <p>Access your account to manage departmental services</p> -->
-      </div>
-
-      <form class="login-form">
-        <div class="form-group">
-          <label for="username">Username / Employee ID</label>
-          <div class="input-with-icon">
-            <i class="fas fa-user"></i>
-            <input type="text" id="username" placeholder="Enter your username">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <div class="input-with-icon">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="password" placeholder="Enter your password">
-            <button type="button" class="password-toggle" id="togglePassword">
-              <i class="fas fa-eye"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="captcha">Enter Captcha</label>
-          <div class="captcha-row">
-            <div class="captcha-display" id="captchaDisplay"></div>
-            <button type="button" class="captcha-refresh" id="refreshCaptcha">
-              <i class="fas fa-sync-alt"></i>
-            </button>
-            <div class="captcha-input">
-              <div class="input-with-icon">
-                <i class="fas fa-shield-alt"></i>
-                <input type="text" id="captcha" placeholder="Enter captcha">
-              </div>
+          <div class="modules-grid">
+            <div class="module-item">
+              <i class="fas fa-users-cog"></i>
+              <div class="module-text">User Management</div>
             </div>
-
+            <div class="module-item">
+              <i class="fas fa-school"></i>
+              <div class="module-text">School Directory</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-user-graduate"></i>
+              <div class="module-text">Student Directory</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-id-badge"></i>
+              <div class="module-text">Employee Directory</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-user-friends"></i>
+              <div class="module-text">Parent Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-bus"></i>
+              <div class="module-text">Transport Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-users"></i>
+              <div class="module-text">Human Resource Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-university"></i>
+              <div class="module-text">School Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-book-open"></i>
+              <div class="module-text">Academic Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-hand-holding-heart"></i>
+              <div class="module-text">Scheme Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-chart-line"></i>
+              <div class="module-text">Budget Monitoring</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <div class="module-text">Guest Faculty Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-award"></i>
+              <div class="module-text">Promotion and TC Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-bed"></i>
+              <div class="module-text">Hostel Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-hard-hat"></i>
+              <div class="module-text">Construction Management</div>
+            </div>
+            <div class="module-item">
+              <i class="fas fa-chart-bar"></i>
+              <div class="module-text">Dashboard & Reports</div>
+            </div>
           </div>
         </div>
 
-        <div class="options">
-          <div class="remember-me">
-            <input type="checkbox" id="remember">
-            <label for="remember">Remember me</label>
+        <div class="footer">
+          © 2025 Madhya Pradesh Tribal Welfare Department. All rights reserved.
+        </div>
+
+        <div class="tribal-pattern"></div>
+      </div>
+
+      <div class="right-panel">
+        <div class="logo-container">
+          <div class="logo">
+            <img src="asset/SED.png" alt="Logo" style="width:70px; height:70px;">
           </div>
-          <a href="#" class="forgot-password">Forgot Password?</a>
+          <div>
+            <div class="department-name">Tribal Welfare Department<br>Madhya Pradesh</div>
+            <div class="department-name-hindi"> जनजातीय कल्याण विभाग, मध्यप्रदेश</div>
+          </div>
         </div>
-        
-
-        <div class="button-row">
-          <button type="button" class="home-button">
-            <i class="fas fa-home"></i>
-          </button>
-          <button type="submit" class="login-button">
-            <i class="fas fa-key"></i>
-            LOGIN
-          </button>
+        <div class="login-header">
+          <h2>User Login</h2>
+          <!-- <p>Access your account to manage departmental services</p> -->
         </div>
 
-        <!-- <div class="register-link">
+        <form class="login-form">
+          <div class="form-group">
+            <label for="username">Username / Employee ID</label>
+            <div class="input-with-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" placeholder="Enter your username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" placeholder="Enter your password">
+              <button type="button" class="password-toggle" id="togglePassword">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="captcha">Enter Captcha</label>
+            <div class="captcha-row">
+              <div class="captcha-display" id="captchaDisplay"></div>
+              <button type="button" class="captcha-refresh" id="refreshCaptcha">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+              <div class="captcha-input">
+                <div class="input-with-icon">
+                  <i class="fas fa-shield-alt"></i>
+                  <input type="text" id="captcha" placeholder="Enter captcha">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="options">
+            <div class="remember-me">
+              <input type="checkbox" id="remember">
+              <label for="remember">Remember me</label>
+            </div>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+
+
+          <div class="button-row">
+            <button type="button" class="home-button">
+              <i class="fas fa-home"></i>
+            </button>
+            <button type="submit" class="login-button">
+              <i class="fas fa-key"></i>
+              LOGIN
+            </button>
+          </div>
+
+          <!-- <div class="register-link">
           New employee? <a href="#">Register for an account</a>
         </div> -->
-      </form>
+        </form>
+      </div>
+    </div>
+
+    <!-- Additional Links Section -->
+    <div class="additional-links">
+      <div class="links-container">
+        <a href="#" class="link-item portal-link">
+          <i class="fas fa-link"></i>
+          <span>GFMS Portal</span>
+        </a>
+        <a href="#" class="link-item portal-link">
+          <i class="fas fa-link"></i>
+          <span>PGFMS Portal</span>
+        </a>
+        <a href="#" class="link-item app-link">
+          <i class="fas fa-mobile-alt"></i>
+          <span>Hamare Shikshak App</span>
+        </a>
+        <a href="#" class="link-item app-link">
+          <i class="fas fa-tablet-alt"></i>
+          <span>Child Traking App</span>
+        </a>
+        <a href="#" class="link-item faq-link">
+          <i class="fas fa-question-circle"></i>
+          <span>FAQ Section</span>
+        </a>
+      </div>
     </div>
   </div>
-
   <script>
     // Generate random captcha
     function generateCaptcha() {

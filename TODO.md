@@ -1,8 +1,6 @@
-# TODO: Fix Icons Not Showing on Login Page
+# TODO List for Adding Links After Container
 
-- [x] Browser tool disabled, proceed with manual steps
-- [x] Download Font Awesome CSS and JS files locally
-- [x] Update index.html to reference local Font Awesome files instead of CDN
-- [x] Added JS file back as it may be needed for icons
-- [x] Moved icons inside input fields and adjusted CSS for right positioning
-- [ ] Test the page again to confirm icons display
+- [x] Add a new section div after the .container div in index.html
+- [x] Create horizontal layout for 5 links: 2 Portal, 2 Apps, 1 FAQ
+- [x] Style the links with icons, gradients, and hover effects similar to modules
+- [x] Ensure responsive design for mobile
