@@ -40,7 +40,7 @@
     }
 
     .tribal-wrapper {
-      padding: 20px;
+      padding: 15px;
       background:
         linear-gradient(rgba(139, 69, 19, 0.6), rgba(160, 82, 45, 0.6)),
         url('asset/art.jpeg');
@@ -706,13 +706,15 @@
 
     @media (max-width: 768px) {
       .links-container {
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
 
       .link-item {
-        width: 200px;
         justify-content: center;
+        padding: 10px 15px;
+        width: 100%;
       }
     }
   </style>
@@ -883,23 +885,23 @@
     <!-- Additional Links Section -->
     <div class="additional-links">
       <div class="links-container">
-        <a href="#" class="link-item portal-link">
+        <a href="https://gfms.educationportal3.in/" Target="blank" class="link-item portal-link">
           <i class="fas fa-link"></i>
           <span>GFMS Portal</span>
         </a>
-        <a href="#" class="link-item portal-link">
+        <a href="https://pgfms.educationportal3.in/" Target="blank" class="link-item portal-link">
           <i class="fas fa-link"></i>
           <span>PGFMS Portal</span>
         </a>
-        <a href="#" class="link-item app-link">
+        <a href="https://play.google.com/store/apps/details?id=co.median.android.jrejze" Trage="blank" class="link-item app-link">
           <i class="fas fa-mobile-alt"></i>
           <span>Hamare Shikshak App</span>
         </a>
-        <a href="#" class="link-item app-link">
+        <a href="#" Trage="blank" class="link-item app-link">
           <i class="fas fa-tablet-alt"></i>
           <span>Child Traking App</span>
         </a>
-        <a href="#" class="link-item faq-link">
+        <a href="#" Trage="blank" class="link-item faq-link">
           <i class="fas fa-question-circle"></i>
           <span>FAQ Section</span>
         </a>
